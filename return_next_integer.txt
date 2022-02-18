@@ -1,0 +1,36 @@
+/* Create a function that takes a number as an argument; 
+increments the by +1 and returns the result
+*/
+
+//Pseudocode *******************************************************
+
+inputs:
+1. NUMBER (integer)
+outputs:
+1. ADD_ONE (integer)
+
+set ADD_ONE to NUMBER + 1
+return ADD_ONE
+
+
+//Javascript *******************************************************
+
+function addition(num) {
+	let total = num + 1;
+	return total;
+}
+
+//Javascript ******************************************************
+
+function addition(num) {
+	num++;
+	return num;
+}
+
+
+//Python ***********************************************************
+
+def addition(num):
+	num = num + 1
+	return num
+

@@ -1,0 +1,35 @@
+/* write a function that takes the base and height of a triangle and returns its area
+*/
+
+
+//Pseudocode *******************************************************
+ Inputs:
+1. BASE (integer)
+2. HEIGHT (integer)
+Outputs:
+1. AREA
+
+set AREA to (BASE * HEIGHT) / 2
+return AREA
+
+//JavaScript *********************************************************
+
+function triArea (base, height){
+	let rect = base*height;
+	let total = rect/2;
+	return total;
+}
+
+//JavaScript ************************************************************
+
+function triArea (base, height) {
+	let total = base*height;
+	total /= 2;
+	return total;
+}
+
+//JavaScript ***************************************************************
+
+function triArea(base,height){
+	return total = (base*height)/2
+}

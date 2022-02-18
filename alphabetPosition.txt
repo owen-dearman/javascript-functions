@@ -1,0 +1,43 @@
+/* Convert letters to numbers - take a string and convert the letters in it to
+there corresponding alphabet position - a=1, b=2, c=3. If there are non-letter values
+in the string, remove them.
+*/
+
+//PSEUDOCODE ******************************************************************************
+
+inputs:
+1. STRING_OF_LETTERS (string)
+outputs:
+1. STRING_OF_NUMBERS (string)
+
+set STRING_OF_ELEMENTS_LOWERCASE to STRING_OF_ELEMENTS in lower case
+set END_OF_STRING to length of STRING_OF_ELEMENTS_LOWERCASE - 1
+set ALPHABET_INDEXES to an array of the letters a to z in order
+set ARRAY_OF_NUMBERS to an empty array.
+
+for each ELEMENT of STRING_OF_ELEMENTS_LOWERCASE from index 0 to END_OF_STRING do
+	if ELEMENT === a letter in ALPHABET_INDEXES then
+		set ELEMENT_INDEX to ( index of ELEMENT in ALPHABET_INDEXES ) - 1
+		add ELEMENT_INDEX to the end of ARRAY_OF_NUMBERS
+	endif	
+endfor
+set STRING_OF_NUMBERS to a string of ARRAY_OF_NUMBERS with a space separating each element
+return STRING_OF_NUMBERS
+
+
+//JAVASCRIPT *******************************************************************************
+
+function alphabetPosition(text) {
+    let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    let code = [];
+    text = text.toLowerCase();
+    for (let i = 0; i < text.length; i++){
+        let letter = text[i];
+        if ((/[a-zA-Z]/).test(letter) === true){
+            let number = alphabet.indexOf(letter);
+            code.push(number+1);
+        }
+    }
+    let answer = code.join(" ");
+    return answer;
+  }

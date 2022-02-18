@@ -1,0 +1,258 @@
+//Challenge - Dog's Birthday
+let dogName = "Jericho the Bull Terrier";
+let dogAge = 2;
+dogAge = dogAge + 1;
+
+console.log(dogName + ", " + dogAge);
+=> Jericho, 3
+
+//update the dog's name with a constant variable
+
+const name = "Jericho";
+
+let firstName = "Owen";
+let lastName = "Dearman";
+
+console.log(`${firstName} ${lastName}`.strip(" "));
+=> ["Owen", "Dearman"]
+
+const fullName = `${firstName} ${lastName}`;
+console.log(fullName);
+=> Owen Dearman
+
+
+//Challlenge - Number outputs
+let example1 = parseInt("Hello 33 World 22");
+let example2 = parseFloat("44 Dylan 33");
+let example3 = 55.3333.toFixed(0);
+let example4 = 200.0.toFixed(2);
+
+=> null
+=> 44 (type = number)
+=> 55 (type = string)
+=> 200.00 (type = string)
+
+//Challenge - Shopping List
+/*
+1. Your company is launching 3 new products: toilet paper, bottled water, and sanitizer. Store them in a list.
+2. Turns out there was a mistake and toilet paper was actually paper towels. Make the appropriate update.
+3. Sanitizer sells out. Remove it from the list.
+4. Business is so good the company launches a new product: Bleach. Add it to the list.
+    
+Note: After creating the initial array do not just create a brand new array. Modify it accordingly.
+*/
+
+let shoppingList = ["toilet paper", "bottled water", "sanitizer"];
+shoppingList[0] = "paper towels";
+shoppingList.pop();
+shoppingList.push("bleach");
+console.log(shoppingList);
+
+=> ["paper towels", "bottled water", "bleach"]
+
+//Challenge - User profile form
+/* User first and last names
+City and state address
+List of hobbies
+Are they a gold member?
+*/
+
+const userProfile = {
+	firstName: "Owen",
+	lastName : "Dearman",
+	age: 23,
+	address: {
+		city: "Watford",
+		county: "Hertfordshire",
+		country: "United Kingdom",
+	},
+	hobbies: ["athletics", "coding", "hockey", "gaming"],
+	goldMember: true,
+};
+
+
+//Challenge - Checkout details
+/* Create 3 variables to store an item price
+Tell user price before discount
+Tell user average price of items before discount
+Tell user final price after saving 5 dollars
+*/
+
+const price1 = 5;
+const price2 = 6.70;
+const price3 = 10.00;
+const totalPrice = price1 + price2 + (price3 * 2);
+const avPrice = totalPrice / 4
+const disPrice = totalPrice - 5
+console.log("After discount: " + disPrice); 
+
+//Challenge - best promo code
+/* make sure the user is given the best promo code
+create two promo codes in variables and compare them to find out if
+one is better value for money than the other one
+*/
+
+const offer1 = "Buy 3 for the price of 2";
+const offer2 = "20% off";
+
+const itemWeight = 150;
+const itemPrice = 12;
+
+let offer1Price = itemPrice*2
+let offer1Weight = itemWeight*3
+
+let offer2Price = (itemPrice*3)*0.8
+let offer2Weight = itemWeight*3
+
+let product = 100
+let balancedPrice1 = offer1Price/4.5;
+let balancedPrice2 = offer2Price/4.5;
+
+const result = console.log(`For ${product} of product, Offer 1 is ${balancedPrice1.toFixed(2)} and Offer 2 is ${balancedPrice2.toFixed(2)}`);
+
+=> Offer one for 100g = £5.33
+   Offer two for 100g = £6.40
+
+//Challenge - log age 
+/* if user is under 12 then log child
+if user is under 20 but over 12 log teen
+if over 20 log adult
+*/
+
+let age = 14;
+if (age <= 12){
+	console.log("Child");
+}else if (12 < age && age < 20){
+	console.log("Teen");
+}else{
+	console.log("Adult");
+}
+
+=> Teen
+
+//False
+//True
+//True
+
+
+//Challenge - Customer Upgrade
+/* Check a user's account type of shopper, super-shopper and guest. 
+If guest, ask to upgrade to shopper
+If shopper, ask to upgrade to super-shopper
+If super-shopper, tell them they're great
+If we don't know their status, then they are a guest
+*/
+
+let = userAccount = "super-shopper";
+switch (userAccount){
+	case "guest":
+		console.log("Do you want to upgrade to shopper status?");
+		break;
+	case "shopper":
+		console.log("Do you want to upgrade to super-shopper status?");
+		break;
+	case "super-shopper":
+		console.log("You are amazing!");
+		break;
+	default:
+		userAccount = "guest";
+		console.log("Would you like to upgrade to shopper status?");
+}
+
+
+//Challenge - total price II
+/* give the customer their total price
+Add the price of the items together with sales tax of 8%
+Log the price
+*/
+
+const cartItems = [
+	{quantity: 1, price: 5},
+	{quantity: 3, price: 4},
+	{quantity: 10, price: 1},
+];
+
+let totalPrice = 0;
+for (let i=0; i <= cartItems.length; i++){
+	totalPrice += cartItems[i].price * cartItems[i].quantity;
+}
+totalPrice *= 1.08;
+console.log(totalPrice)
+
+//OR
+
+for(const cartItem of CartItems) {
+	total += cartItem.price * cartItem.quantity;
+}
+total += 1.08;
+console.log(total)
+
+//challenge - analytics
+/* track user's activity
+While the total updates is under 10, keep logging the update count
+After we reach the threshold, log "No longer tracking the user"
+Change the logic to a do while with it updating just a single time
+*/
+
+let count = 0;
+while (count <= 10){
+	console.log("Update: " + count);
+	count++;
+}
+console.log("No longer tracking user")
+
+
+let count = 10;
+do{
+	console.log("Update: " + count);
+	count++;
+}
+while(count<10){
+}
+console.log("No longer tracking user")
+
+
+
+//Challenge - go through the checkout process
+/* Use getUserCredentials that returns the first name, last name and concats with email
+Write a function called getPreTaxTotal that takes in our cartItems and returns the total
+without tax
+Pass the preTaxTotal value to a getTaxedTotal function that returns the value with tax
+Log the 3 values.
+
+function getUserCredentials(firstName, lastName, email){ 
+	return`Name: ${firstName} ${lastName}, Email: ${email}`
+}
+
+const cartItems = [
+    { quantity: 1, price: 5 },
+    { quantity: 3, price: 4 },
+    { quantity: 10, price: 1}
+];
+
+function getPreTaxTotal(cartItems){
+	let totalPrice = 0;
+	for (let i=0; i < cartItems.length; i++){
+		totalPrice += cartItems[i].price * cartItems[i].quantity;
+	}
+	return totalPrice;
+}
+
+function getTaxedTotal(totalPrice){
+	let taxTotal = totalPrice * 1.08;
+	return taxTotal;
+}
+
+const details = getUserCredentials("Owen", "Dearman", "owendearman@gmail.com");
+const preTax = getPreTaxTotal(cartItems);
+const postTax = getTaxedTotal(preTax);
+
+console.log(details);
+console.log(preTax);
+console.log(postTax);
+
+
+
+
+
+

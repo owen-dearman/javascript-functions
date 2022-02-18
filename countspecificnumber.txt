@@ -1,0 +1,53 @@
+- list of numbers and a specific number
+- number of instances of specific number in list of numbers
+
+Inputs:
+1. CARD_NUMBERS (array of integers)
+2. SPECIFC NUMBER (integer)
+Outputs:
+1. SPECIFIC_ NUMBER_COUNT (integer)
+
+set SPECIFIC_NUMBER_COUNT to 0
+for all CARD in CARD_NUMBERS do
+	if CARD === SPECIFIC_NUMBER then
+		SPECIFIC_NUMBER_COUNT = SPECIFIC_NUMBER_COUNT + 1
+	endif
+endfor
+return SPECIFIC_NUMBER_COUNT
+
+#PYTHON #1 *************************************************
+
+stack = [1, 15, -10, 3, 15, 88]
+specific = 15
+count = 0
+for i in range(len(stack)):
+	if stack[i] == specific:
+		count = count + 1
+print(count)
+
+#2 *****************************************
+
+print(stack.count(64))
+
+
+#3 *****************************************
+
+from collections import Counter
+stack = [1, 15, -10, 3, 15, 88]
+Counter(stack)
+
+
+#JAVASCRIPT ***********************************************
+
+const stack = [1, 15, -10, 3, 15, 88, 23, 15, 88];
+const specific = 15;
+let count = 0;
+for (i=0; i<stack.length; i++){
+	if (stack[i] === specific) {
+		count++;
+	}
+}
+console.log("count of " + specific + " instances: " + count);
+
+
+		

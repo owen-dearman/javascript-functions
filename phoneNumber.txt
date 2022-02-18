@@ -1,0 +1,42 @@
+/* Phone Number - takes an array of 10 integers between 0 and 9 and return them
+in the following format - (123) 456-7890
+*/
+
+//PSEUDOCODE ************************************************************************
+
+Inputs:
+1. ARRAY_NUMBERS (array)
+Outputs:
+2. PHONE_NUMBER (string)
+
+set AREA_CODE to a string of ARRAY_NUMBERS[0] to ARRAY_NUMBERS[2]
+set MIDDLE_DIGITS to a string of ARRAY_NUMBERS[3] to ARRAY_NUMBERS[5]
+set END_DIGITS to a string of ARRAY_NUMBERS[6] to ARRAY_NUMBERS[9]
+set END_NUMBER to a string of MIDDLE_DIGITS and END_DIGITS separated by a hyphen
+set START_NUMBER to a string of AREA_CODE surrounded in parentheses
+set PHONE_NUMBER to a string of START_NUMBER and END_NUMBER separated by a space
+return PHONE_NUMBER
+
+//JAVASCRIPT ************************************************************************
+
+function phoneNumber(numbers){
+    let arrayTwo = [];
+    let arrayThree = [];
+    let arrayFour=[];
+    for (i=0; i<=2; i++){
+        let firstSection = numbers[i];
+        arrayTwo.push(firstSection);
+    }
+    for(j=3; j<=5; j++){
+        let secondSection = numbers[j];
+        arrayThree.push(secondSection);
+    }
+    for(k=6; k<=9; k++){
+        let thirdSection = numbers[k];
+        arrayFour.push(thirdSection);
+    }
+    let one = arrayTwo.join("");
+    let two = arrayThree.join("");
+    let three = arrayFour.join("");
+    return `(${one}) ${two}-${three}`
+}

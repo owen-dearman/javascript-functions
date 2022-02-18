@@ -1,0 +1,86 @@
+/* Row of the odd triangle - given a triangle of odd numbers
+    1
+  3   5
+7   9   11
+
+and a row number, print out all odd numbers on that row.
+oddRow(5) => ['21', '23', '25', '27', '29']
+
+*/
+
+
+// PSEUDOCODE ****************************************************
+
+Inputs:
+1. TRIANGLE_ROW (number)
+Outputs:
+1. ODD_NUMBERS (array of integers)
+
+========================================================
+set ODD_NUMBERS to an empty array
+set NUMBER_ODD_NUMBERS to howManyOddNumbers(TRIANGLE_ROW)
+set STARTING_POINT to (NUMBER_ODD_NUMBERS * 2) + 1
+set NUMBER_ON_ROW to TRIANGLE_ROW
+
+for NUMBER from 1 to NUMBER_ON_ROW do
+	add STARTING_POINT to ODD_NUMBERS
+	set STARTING_POINT to STARTING_POINT + 2
+endfor
+return ODD_NUMBERS	
+
+========================================================
+howManyOddNumbers(TRIANGLE_ROW)
+set NUMBER_ODD_NUMBERS to 0
+set NUMBER_ODD_NUMBERS to ((TRIANGLE_ROW/2)*(TRIANGLE_ROW + 1)) - TRIANGLE_ROW
+return NUMBER_ODD_NUMBERS
+
+
+//JAVASCRIPt *************************************************************
+
+//EDIT = this implementation times out on big numbers. See oddTriangleRows2 for a cleaner implementation
+
+function odd_row(n){
+    let rowValues = [];
+    let howManyOddNumbers = 0;
+//find how many odd numbers there are before row n
+    for (i=0; i<n; i++){
+        howManyOddNumbers += i;
+    }
+    console.log(howManyOddNumbers);
+//count through all previous odd numbers until the start of row n
+    let countNumber = 1;
+    for (i=0; i<howManyOddNumbers; i++){
+        countNumber += 2;
+    }
+    console.log(countNumber)
+//add all odd numbers in row n into the rowValues array.
+    for(i=0; i<n; i++){
+        rowValues.push(countNumber)
+        countNumber += 2;
+    }
+//return the values on row n
+    return(rowValues)
+}
+
+let answer = oddRow(10);
+console.log(answer)
+
+// JAVASCRIPT ****************************************************************
+
+function oddRow(n){
+  let oddNumbers = [];
+//find how many odd numbers there are before row n
+  let numberOddNumbers = ((n/2)*(n+1))-n
+//find first odd number of the row in question
+  let startingPoint = (numberOddNumbers*2)+1;
+//add all odd numbers in row n into the rowValues array.
+  for(i=0; i<n; i++){
+      oddNumbers.push(startingPoint)
+      startingPoint += 2;
+  }
+//return the values on row n
+  return(oddNumbers)
+}
+
+let answer2 = oddRow(5)
+console.log(answer2)

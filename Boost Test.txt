@@ -1,0 +1,223 @@
+//Find the mean *******************************************************************
+
+Function: findAverage
+Parameters:
+1. LIST_OF_NUMBERS (array of integers)
+Returns:
+1. MEAN_OF_NUMBERS (integer)
+
+set NUMBER_TOTAL to 0
+for each NUMBER in LIST_OF_NUMBERS do
+	add NUMBER to NUMBER_TOTAL
+endfor
+set NUMBER_OF_NUMBERS to length of LIST_OF_NUMBERS
+set MEAN_OF_NUMBERS to NUMBER_TOTAL divided by NUMBER_OF_NUMBERS
+return MEAN_OF_NUMBERS
+
+
+//Count the number of vowels *******************************************************
+
+Function: vowelCount
+Parameters:
+1. STRING_OF_LETTERS (string)
+Returns:
+2. VOWEL_COUNT (integer)
+
+set VOWEL_COUNT to 0
+set VOWEL_DICTIONARY to ["a", "e", "i", "o", "u"].
+set STRING_LOWERCASE to STRING_OF_LETTERS in lower case
+
+for each LETTER in STRING_LOWERCASE do
+	if LETTER === a value in VOWEL_DICTIONARY then
+		increment VOWEL_COUNT by 1
+	endif
+endfor
+return VOWEL_COUNT
+
+
+//Count occurrences of a specific letter **********************************************
+
+Function: specificLetterCount
+Parameters:
+1. LIST_OF_WORDS (array of strings)
+2. TARGET_LETTER (string of single letter)
+Returns:
+1. TARGET_OCCURRENCES (integer)
+
+set TARGET_OCCURRENCES to 0
+for each WORD in LIST_OF_WORDS do
+	set WORD to an array of the letters in WORD
+	for each LETTER in WORD do
+		if LETTER === TARGET_LETTER then
+			increment TARGET_OCCURRENCES by 1
+		endif
+	endfor
+endfor
+return TARGET_OCCURRENCES
+
+
+// First number divisible ***********************************************************
+
+Function: firstDivisible
+Parameters:
+1. LIST_OF_NUMBERS
+2. FACTOR_NUMBER
+Returns:
+1. FIRST_MULTIPLE
+
+for each NUMBER in LIST_OF_NUMBERS do
+	if NUMBER / FACTOR_NUMBER equals an integer with no remainders then
+		set FIRST_MULTIPLE to NUMBER
+		return FIRST_MULTIPLE
+	endif
+endfor
+
+// Find list overlap ****************************************************************
+
+Function: listOverlap
+Parameters:
+1. FIRST_LIST_OF_NUMBERS (array of integers)
+2. SECOND_LIST_OF_NUMBERS (array of integers)
+Returns:
+NUMBER_OF_OVERLAPPING_NUMBERS (integer)
+
+set NUMBER_OF_OVERLAPPING_NUMBERS to 0
+for each NUMBER in FIRST_LIST_OF_NUMBERS do
+	set IS_IN_SECOND_LIST to searchSecondList(SECOND_LIST_OF_NUMBERS, NUMBER) 
+	if IS_IN_SECOND_LIST === true then
+		increment NUMBER_OF_OVERLAPPING_NUMBERS by 1
+	endif
+endfor
+return NUMBER_OF_OVERLAPPING_NUMBERS
+
+==================================================================
+
+Function: searchSecondList
+Parameters:
+1. LIST_TO_SEARCH (array of integers)
+2. SEARCH_NUMBER (integer)
+Returns:
+1. Boolean
+
+if LIST_TO_SEARCH includes SEARCH_NUMBER then
+	return true
+else
+	return false
+endif
+
+
+
+// Accumulated Probabilities ************************************************************
+
+function accumulateOdds(probabilities){
+    let accumulatedProbabilities = [];
+    for (let probability of probabilities){
+        if (accumulatedProbabilities.length === 0){
+            accumulatedProbabilities.push(probability);
+        }else{
+            let multiplier = accumulatedProbabilities.splice(-1);
+            console.log(multiplier)
+            let accumulatedProbability = probability * multiplier;
+            accumulatedProbabilities.push(accumulatedProbability);
+        }
+    }
+    return accumulatedProbabilities
+}
+
+
+//Halve Strings ***************************************************************************
+
+function halveString(str){
+    let inputLength = str.length;
+    if (inputLength % 2 === 0){
+        var turningIndex = inputLength / 2;
+    } else {
+         var turningIndex = (inputLength + 1) / 2;
+    }
+    let firstHalf = str.slice(0, turningIndex);
+    let secondHalf = str.slice(turningIndex, inputLength);
+    return [firstHalf, secondHalf]
+}
+
+
+//Find average *************************************************************************
+
+function findAverage(numArr){
+    let average = 0;
+    for (let number of numArr){
+        average += (number / numArr.length);
+    }
+    return average
+}
+
+
+// Vowels count *************************************************************************
+
+function vowelCount(str) {
+    let vowelsCount = 0;
+    str = str.toLowerCase();
+    const vowels = ["a", "e", "i", "o", "u"];
+    for(i=0; i<=str.length; i++){
+        if (vowels.includes(str[i]) === true){
+            vowelsCount++;
+        }
+    }
+    return vowelsCount;
+}
+
+
+//Specific Letter Count *******************************************************************
+
+function specificLetterCount(wordList, targetLetter){
+    let targetCount = 0;
+    for (let word of wordList){
+        word = word.split("");
+        for (let letter of word){
+            if (letter === targetLetter){
+                targetCount++
+            }
+        }
+    }
+    return targetCount
+}
+
+
+// First number divisible ***************************************************************
+
+function firstDivisible(numArr, factor){
+    for (let number of numArr){
+        if (number % factor === 0){
+            return number
+        }
+    }
+}
+
+
+// List Overlap ***********************************************************************
+
+function listOverlap(listOne, listTwo){
+    let overlapCount = 0;
+    for (let number of listOne){
+        let isInSecondList = searchList(listTwo, number)
+        if (isInSecondList === true){
+            overlapCount++
+        }
+    }
+    return overlapCount
+}
+
+function searchList(searchlist, num){
+    return searchlist.includes(num)
+}
+
+
+
+
+	
+
+
+
+
+
+
+

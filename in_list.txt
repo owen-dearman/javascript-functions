@@ -1,0 +1,44 @@
+inlist
+- 20 cards with a number on one side
+- a specific number to search in the stack for 
+- If the number is in the stack then write YES
+- If the number is not in the stack then write NO
+
+Inputs:
+1. CARD_NUMBERS (array of integers)
+2. SPECIFIC_NUMBER (integer)
+Outputs:
+1. boolean 
+
+for all CARD in CARD_NUMBERS do
+	if CARD === SPECIFIC_NUMBER then
+		return true
+	endif
+endfor
+return false
+
+
+#PYTHON *********************************************************
+
+specific_number = 23
+stack = [21, 22, 23, 24, 25, 26]
+for i in range(len(stack)):
+	if stack[i] == specific_number:
+		print("YES")
+	else:
+		print("NO")
+
+#JAVASCRIPT *******************************************************
+
+let specificNumber = 23;
+let stack = [21, 22, 23, 24, 25, 26];
+
+for (i=0; i<stack.length; i++){
+	if (stack[i] === specificNumber){
+		console.log("True");
+	} else {
+		console.log("False");
+	}
+}
+
+	

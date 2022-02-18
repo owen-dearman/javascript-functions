@@ -1,0 +1,70 @@
+/* 
+Write a function that takes in a string of one or more words
+and returns the same string, but will all five or more letter words
+reversed. Strings passed in will consist of only letters and spaces
+
+spinWords("Hey fellow warriors") => "Hey wollef sroirraw"
+spinWords("This is a test") => "This is a test"
+spinWords("This is another test") => "This is rehtona test"
+*/
+
+// EXTRA TESTS ********************************************************************
+// spinWords ("Hello young children of code") => "olleH gnuoy nerdlihc of code" 
+// spinWords("good morning") => "good gninrom"
+// spinWords("I like the film") => "I like the film"
+
+// PSEUDOCODE *********************************************************************
+
+Inputs: 
+1. INPUT_WORDS (string)
+Outputs:
+1. WORD_SPIN (string)
+
+set ARRAY_OF_WORDS to an array of INPUT_WORDS, split at spaces
+set UPDATED_ARRAY to a blank array
+for WORD in ARRAY_OF_WORDS do
+	if length of WORD >= 5 then
+		set REVERSED_WORD to wordReverser(WORD)
+		add REVERSED_WORD to the end  of UPDATED_ARRAY
+	else
+		add WORD to the end of UPDATED_ARRAY
+	endif
+endfor
+set WORD_SPIN to a string of UPDATED_ARRAY with spaces separating elements
+return WORD_SPIN
+
+wordReverser(WORD)
+set REVERSE_WORD_ARRAY to an array of WORD split every letter
+reverse the elements in REVERSE_WORD_ARRAY
+set WORD_REVERSED to a string of REVERSE_WORD_ARRAY 
+return WORD_REVERSED
+
+//PSEUDOCODE TEST ******************************************************************
+
+"the quick fox jumps"
+["the", "quick", "fox", "jumps"]
+["the", "kciuq", "fox", "spmuj"]
+=> "the kciuq fox spmuj"
+
+//JAVASCRIPT **********************************************************************
+
+function reverser(word){
+    let reverseWordArray = word.split("");
+    reverseWordArray.reverse();
+    return reverseWordArray.join("")
+}
+
+function spinWords(string){
+    let arrayWords = string.split(" ");
+    let updatedArray = [];
+    for (let word of arrayWords){
+        if (word.length >= 5){
+            let reverseWord = reverser(word);
+            updatedArray.push(reverseWord); 
+        }else{
+            updatedArray.push(word);
+        }
+    }
+    return updatedArray.join(" ") 
+}
+

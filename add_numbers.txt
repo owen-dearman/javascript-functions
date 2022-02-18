@@ -1,0 +1,33 @@
+add_numbers
+- stack of index cards with numbers written on one side
+- add up the numbers, write them on a sticky note and announce it
+-
+
+
+Inputs:
+1. CARD_STACK (array of integers)
+Outputs:
+1. SUM_OF_CARDS (integer)
+
+set SUM_OF_CARDS to 0
+for all CARD in CARDSTACK do
+	SUM_OF_CARDS = SUM_OF_CARDS + CARD
+endfor
+return SUM_OF_CARDS
+
+#PYTHON **********************************************************
+
+stack = [21, 134, 93, 3, 23, 987]
+count = 0
+for i in range(len(stack)):
+	count = count + stack[i]
+	print(count)
+
+#JAVASCRIPT ******************************************************8
+
+const stack = [21, 134, 93, 3, 23, 987];
+let count = 0;
+for (i=0; i<stack.length; i++) {
+	count += stack[i];
+}
+console.log("Sum of items: " + count);

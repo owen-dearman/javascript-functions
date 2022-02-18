@@ -1,0 +1,39 @@
+/*create a function that returns the sum of all the multiples of 3 and 5 below the number passed into the function
+- If a number is both a multiple of 3 and a multiple of 5, then count it only once
+- If the number is negative, return 0.
+*/
+
+
+// PSEUDOCODE *************************************************
+
+Inputs:
+1. INTEGER_CEILING (number)
+Outputs:
+2. SUM_MULTIPLE_3_5 (number)
+
+set INTEGER to 0
+for INTEGER until INTEGER_CEILING do
+	if INTEGER / 3 != a whole number then
+		set SUM_MULTIPLE_3_5 to SUM_MULTIPLE_3_5 + INTEGER
+	else if INTEGER / 5 != a whole number then
+		set SUM_MULTIPLE_3_5 to SUM_MULTIPLE_3_5 + INTEGER
+	endif
+endfor
+return SUM_MULTIPLE_3_5
+
+// JAVASCRIPT ******************************************************
+
+function multipleThreeFive(n){
+    let sumTotal = 0;
+    if (n < 0){
+        return(0)
+    }
+    for (i=0; i<n; i++){
+        if (i % 3 === 0){
+		sumTotal += i;
+        }else if (i % 5 === 0){
+		sumTotal += j;
+    	}
+    }
+    return sumTotal;
+}

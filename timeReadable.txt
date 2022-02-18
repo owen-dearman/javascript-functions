@@ -1,0 +1,56 @@
+/* Given the total number of seconds, return the time in a human readable format
+HH:MM:SS
+*/
+
+
+//PSEUDOCODE *****************************************************
+
+Inputs:
+1. SECONDS (number)
+Outputs:
+1. READABLE_TIME (string)
+
+set TIME_HOURS to SECONDS / 3600
+set HOURS to TIME_HOURS rounded down to 0 decimal places
+set HOURS_IN_SECONDS to HOURS * 3600
+set REMAINING_SECONDS to SECONDS - HOURS_IN_SECONDS
+set TIME_MINUTES to REMAINING_SECONDS / 60
+set MINUTES to TIME_MINUTES rounded down to 0 decimal places
+set MINUTES_IN_SECONDS to MINUTES * 60
+set SECONDS to REMAINING_SECONDS - MINUTES_IN_SECONDS
+if SECONDS is less than 10 then
+	add a zero in front of SECONDS
+endif
+if MINUTES is less than 10 then
+	add a zero in front of MINUTES
+endif
+if HOURS is less than 10 then
+	add a zero in front of HOURS
+endif
+return HOURS : MINUTES : SECONDS
+
+//JAVASCRIPT *****************************************************
+
+function timeReadable(seconds){
+    let totalHours = seconds/3600
+    let hours = Math.trunc(totalHours);
+    let fullSeconds = hours*3600;
+    let remainingSeconds = seconds - fullSeconds;
+    let remainingMinutes = remainingSeconds/60;
+    let minutes = Math.trunc(remainingMinutes);
+    let fullminutes = minutes*60;
+    let lastSeconds = remainingSeconds - fullminutes;
+    if (lastSeconds < 10){
+        lastSeconds = ('0' + lastSeconds).slice(-2);
+    }
+    if (minutes < 10){
+        minutes = ('0' + minutes).slice(-2);
+    }
+    if (hours < 10){
+        hours = ('0' + hours).slice(-2);
+    }
+    return(`${hours}:${minutes}:${lastSeconds}`)
+}
+
+let answer = timeReadable(233025)
+console.log(answer)

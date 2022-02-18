@@ -1,0 +1,53 @@
+/* ValidParentheses - 
+
+Write a function that takes a string of parentheses, and determines if the order of the parentheses is valid.
+ The function should return true if the string is valid, and false if it's invalid.
+
+*/
+
+//PSEUDOCODE ********************************************************************************
+
+Inputs:
+1. PARENTHESES (string)
+Outputs:
+1. boolean
+
+set COUNT to 0
+set PAREN_ARRAY to an array of PARENTHESES, split between each element
+
+for BRACKET in PAREN_ARRAY do
+	if BRACKET == "(" then
+		add one to COUNT
+	else if BRACKET == ")" then
+		minus one from COUNT
+	endif
+	if COUNT is negatve then
+		return false
+	endif
+endfor
+if COUNT == 0 then
+	return true
+else 
+	return false
+
+//JAVASCRIPT *************************************************************************************
+
+function validParentheses(parens){
+    parens.split("");
+    let count = 0;
+    for (i=0; i<parens.length; i++){
+        if (parens[i] == "("){
+            count++
+        }else if (parens[i] ==")"){
+            count--
+        }
+        if (count < 0){
+            return false
+        }
+    }
+    if (count==0) {
+        return true
+    }else{
+        return false
+    }
+}

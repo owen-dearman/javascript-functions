@@ -1,0 +1,44 @@
+/* findOdd - given an array of numbers, return the number which occurs an odd number of times.
+There will only be one number that occurs an odd number of times.
+*/
+
+//PSEUDOCODE ************************************************************************************
+
+Inputs:
+1. ARRAY_TO_SORT (array containing integers)
+Outputs:
+1. NUMBER (integer)
+
+set NUMBER_ODD_TIMES to 0
+for each NUMBER in ARRAY_TO_SORT do
+	set OCCURANCE_COUNT to 0
+	for each INDIVIDUAL_VALUE in ARRAY_TO_SORT do
+		if NUMBER === INDIVIDUAL_VALUE then
+			OCCURANCE_COUNT + 1
+		endif
+	endfor
+	if OCCURANCE_COUNT is an odd number then
+		return NUMBER
+	endif
+endfor
+
+//JAVASCRIPT ***********************************************************************************
+
+function findOdd(A){
+    let maxSoFar = 0;
+    for (i=0; i<A.length; i++){
+        let count = 0;
+        for (j=0; j<A.length; j++){
+            if (A[i] ==  A[j]){
+                count ++
+            }
+        }
+        if (count % 2 != 0){
+            maxSoFar = A[i]
+        }
+    }
+    return maxSoFar;
+}
+
+answer = findOdd([ 10, 10, 10, 4, 4, 5, 5, 6, 6, 6, 6, 7, 7])
+console.log(answer)

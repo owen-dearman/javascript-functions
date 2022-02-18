@@ -1,0 +1,69 @@
+Outline:
+- 10 friends
+- count up from 1 to 100
+- if n / 7 == TRUE, the direction switches
+- if n / 11 == TRUE, the next person is skipped
+- if n == 77, both occur (person 6 becomes person 4)
+- if player>10, then player = player-10
+- if player<1, then player = player+10
+- which player will say 100?
+
+
+PROGRAM CounterGame:
+	count = 0
+	player = 1
+	isClockwise = true
+
+#Function for changing direction of counting.
+	FUNCTION direction_switch(isClockwise):
+		IF isClockwise == true THEN:
+			isClockwise = false
+		ELSE isClockwise == false THEN:
+			isClockwise = true
+		ENDif
+	ENDfunction
+
+#Function for adding or subtracting from count
+	FUNCTION playerChange(isClockwise, playerAdjust):
+		IF isClockwise == true THEN
+			player += playerAdjust
+		ELSE
+			player += playerAdjust * -1
+		ENDif
+	ENDfunction
+
+	WHILE count != 100, DO:
+#If the count is both a multiple of 11 and of 7 then change direction and skip a player
+		IF count == 77 THEN:
+			direction_switch(isClockwise)
+			playerChange(isClockwise, 2)
+		ENDif
+
+#If count is divisible by 7 then change direction
+		ELSE IF count % 7 == 0 THEN
+			direction_switch(isClockwise)
+			playerChange(isClockwise, 1)
+
+#If count is divisible by 11 then skip the next player
+		ELSE IF count % 11 == 0 THEN
+			playerChange(isClockwise, 1)
+
+#If none of the above is true
+		ELSE:
+			playerChange(isClockwise, 1)
+		ENDif
+
+#To keep the player number between 1 and 10
+		IF player > 10 THEN:
+			player = player - 10
+		ELIF player < 1 THEN:
+			player = player + 10
+		ENDif
+
+#Increase the count by 1
+	count ++
+	ENDwhile
+
+#Announce which player says which number
+	announce "Player " + player + "says " + count
+ENDprogram

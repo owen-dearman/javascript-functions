@@ -1,0 +1,49 @@
+- order the cards from highest to lowest
+- select the second card
+
+
+Inputs:
+1. CARD_NUMBERS (integer) 
+Outputs:
+1. SECOND_MAX (integer)
+
+set MAX_SO_FAR to 0
+set SECOND_MAX_SO_FAR to 0
+for all CARD in CARD_NUMBERS do
+	if CARD > MAX_SO_FAR then
+		MAX_SO_FAR = CARD
+	else if MAX_SO_FAR > CARD > SECOND_MAX_SO_FAR then
+		SECOND_MAX_SO_FAR = CARD
+	endif
+endfor
+set SECOND_MAX to SECOND_MAX_SO_FAR
+return SECOND_MAX
+
+
+#PYTHON **************************************************************
+
+stack = [21, 24, 26, 20, 55, 674, 976, 679, -124, 54]
+max = 0
+second_max = 0
+for i in range(len(stack)):
+	if stack[i] > max:
+		max = stack[i]
+	elif max > stack[i] and stack[i] > second_max:
+		second_max = stack[i]
+print(second_max)
+
+#JAVASCRIPT ***********************************************************
+
+const stack = [21, 24, 26, 20, 55, 674, 976, 679, -124, 54];
+let firstMax = 0;
+let secondMax = 0;
+for (i=0; i<stack.length; i++){
+	if (stack[i] > firstMax){
+		firstMax = stack[i];
+	} else if (firstMax > stack[i] && stack[i] > secondMax){
+		secondMax = stack[i];
+	} 
+}
+console.log("Highest Number: " + firstMax);
+console.log("Second Highest: " + secondMax);
+

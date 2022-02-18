@@ -1,0 +1,56 @@
+count larger than specific
+- list of numbers
+- specific numbers
+- count how many numbers from list are above and below the specific number
+
+
+Inputs:
+1. CARD_STACK (array of inetegers)
+2. SPECIFIC_NUMBER (integer)
+Outputs:
+1. ABOVE_SPECIFIC_NUMBER (integer)
+2. BELOW_SPECIFIC_NUMBER (integer)
+
+set ABOVE_SPECIFIC_NUMBER to 0
+set BELOW_SPECIFIC_NUMBER to 0
+for all CARD in CARD_STACK do
+	if CARD > SPECIFIC_NUMBER then
+		ABOVE_SPECIFIC_NUMBER = ABOVE_SPECIFIC_NUMBER + 1
+	else if CARD < SPECIFIC_NUMBER then
+		BELOW_SPECIFIC_NUMBER = BELOW_SPECIFIC_NUMBER + 1
+	endif
+endfor
+return ABOVE_SPECIFIC_NUMBER
+return BELOW_SPECIFIC_NUMBER
+
+
+#PYTHON *************************************************************************
+
+countup = 0
+countdown = 0
+specific_number = int(input("specific number: "))
+for i in range(len(stack)):
+	if stack[i] > specific_number:
+		countup = countup + 1
+	elif stack[i] < specific_number:
+		countdown = countdown + 1
+print(countup)
+print(countdown)
+
+
+#JAVASCRIPT *********************************************************************
+
+const stack = [21, 34, 65, 66, 3, 9, 10, 345, 32];
+let countup = 0;
+countdown = 0;
+specificNumber = 30;
+
+for (i=0; i<stack.length; i++){
+	if (stack[i] > specificNumber){
+		countup ++;
+	} else if (stack[i] < specificNumber) {
+		countdown ++;
+	}
+}
+console.log("There are " + countup + " numbers above " + specificNumber + " and " + countdown + " numbers below");
+

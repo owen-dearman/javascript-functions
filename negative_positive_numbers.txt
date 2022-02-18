@@ -1,0 +1,62 @@
+- stack of numbers
+- count how many are positive
+
+
+Inputs:
+1. CARD_NUMBERS (array of integers)
+Outputs:
+2. POSITIVE_COUNT (integer)
+
+set POSITIVE_COUNT to 0
+for all CARD in CARD_NUMBERS do
+	if CARD > 0 then
+		POSITIVE_COUNT = POSITIVE_COUNT +1
+	endif
+endfor
+return POSITIVE_COUNT
+
+#PYTHON *****************************************************
+
+stack = [0, -12, 45, 6, 35, 87, 102]
+count = 0
+for i in range(len(stack)):
+	if stack[i] > 0:
+		count = count + 1
+print(count)
+
+
+
+PROGRAM countnegative
+	FOR all cards in stack DO
+		remove and read highest card
+		IF current card < 0 THEN
+		count = count + 1
+		ENDif
+	ENDfor
+announce count
+ENDprogram
+
+#PYTHON ********************************************************
+
+stack = [0, -12, 45, 6, 35, 87, 102]
+count = 0
+for i in range(len(stack)):
+	if stack[i] < 0:
+		count = count + 1
+print(count)
+
+#JAVASCRIPT ******************************************************8
+
+const stack = [0, -12, 45, 6, 35, 87, 102];
+let negCount = 0;
+let posCount = 0;
+for (i=0; i<stack.length; i++) {
+	if (stack[i] < 0){
+		negCount ++;
+	}else if(stack[i] > 0){
+		posCount ++;
+	}else{
+		console.log("List contains 0");
+	}
+}
+console.log("There are "+ posCount +" numbers above 0 and "+ negCount +" numbers below 0.");

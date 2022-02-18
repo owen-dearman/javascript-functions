@@ -1,0 +1,64 @@
+/*
+ROT13 code. Cipher that replaces a letter with the letter 13 places after it in the 
+aplhabet. Create a function that takes a string and returns the string ciphered with
+ROT13. Any numbers or special characters should be returned as they are.
+
+rot13("test) => "grfg"
+rot13("abc") => "lmn"
+*/
+
+
+//PSEUDOCODE *************************************************************************
+
+Inputs:
+1. ENGLISH_MESSAGE (string)
+Outputs:
+1. ROT_CODE (string)
+
+set ENGLISH_ALPHABET_LC to ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+set ENGLISH_ALPHABET_UC to ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+set ROT_CODE_ARRAY to a blank array
+
+set MESSAGE_ARRAY to array of ENGLISH_MESSAGE
+for ORIGINAL_LETTER of MESSAGE_ARRAY do
+	if ORIGINAL_LETTER is uppercase then
+		set ALPHABET_INDEX to ( index of ORIGINAL_LETTER in ENGLISH_ALPHABET_UC ) - 1 
+		set CIPHER_INDEX to (ALPHABET_INDEX + 13) % 26
+		set CIPHER_LETTER by searching ENGLISH_ALPHABET_UC for CIPHER_INDEX
+		add CIPHER_LETTER to end of ROT_CODE_ARRAY
+	else if ORIGINAL_LETTER is lower case then 
+		set ALPHABET_INDEX to ( index of ORIGINAL_LETTER in ENGLISH_ALPHABET_LC ) - 1 
+		set CIPHER_INDEX to (ALPHABET_INDEX + 13) % 26
+		set CIPHER_LETTER by searching ENGLISH_ALPHABET_LC for CIPHER_INDEX
+		add CIPHER_LETTER to end of ROT_CODE_ARRAY
+	else
+		add ORIGINAL_LETTER to ROT_CODE_ARRAY
+	endif
+endfor
+return ROT_CODE as a string of ROT_CODE_ARRAY 
+
+//JAVASCRIPT ****************************************************************************
+
+function rot13(string){
+const englishAlphabetLC = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const englishAlphabetUC = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+let rotCodeArray = [];
+let messageArray = string.split("");
+for (i=0; i<messageArray.length; i++){
+    if (/[a-z]/.test(messageArray[i])){
+        let aplhabetIndex = englishAlphabetLC.indexOf(messageArray[i])
+        let cipherIndex = (aplhabetIndex + 13) % 26;
+        let cipherLetter = englishAlphabetLC[cipherIndex]
+        rotCodeArray.push(cipherLetter);
+    }else if(/[A-Z]/.test(messageArray[i])){
+        let aplhabetIndex = englishAlphabetUC.indexOf(messageArray[i])
+        let cipherIndex = (aplhabetIndex + 13) % 26;
+        let cipherLetter = englishAlphabetUC[cipherIndex]
+        rotCodeArray.push(cipherLetter);
+    }else{
+        rotCodeArray.push(messageArray[i]);
+    }
+}
+return rotCodeArray.join("");
+}
+

@@ -1,0 +1,19 @@
+/* Create a function that takes an array containing only numbers and return
+the first element.
+*/
+
+
+//Pseudocode ****************************************************************
+
+Inputs:
+1. NUMBER_ARRAY (array of integers)
+Outputs:
+2. FIRST_ELEMENT (integer)
+
+return NUMBER_ARRAY[0]
+
+//JavaScript ****************************************************************
+
+function getFirstValue(arr) {
+	return arr[0];
+}
