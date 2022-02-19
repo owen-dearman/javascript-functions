@@ -32,7 +32,7 @@ convertLetterNumber(".763ABC/") => "1 2 3"
 /**
  * Converts a string to a code where a letter corresponds to it's alphabet position
  * @param {string} text - string to convert
- * @returns {string} code
+ * @returns {string} codecd
  */
 
 function alphabetPosition(text) {
