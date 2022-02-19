@@ -35,6 +35,12 @@ largestOddEven([222]) // => n/a, 222
 
 */
 
+/**
+ * Returns largest even and odd numbers from array of integers
+ * @param {array} cardNumbers - array of integers
+ * @returns {string} largest odd and even numbers
+ */
+
 function largestOddEven(cardNumbers){
     let oddMaxSoFar = "n/a";
     let evenMaxSoFar = "n/a";
