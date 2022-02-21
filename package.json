@@ -1,0 +1,26 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "A directory of JavaScript functions used for practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format:check" : "yarn prettier --check src/",
+    "format:write" : "yarn prettier --write src/",
+    "lint": "yarn run eslint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owen-dearman/javascript-functions.git"
+  },
+  "author": "Owen Dearman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owen-dearman/javascript-functions/issues"
+  },
+  "homepage": "https://github.com/owen-dearman/javascript-functions#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "prettier": "2.5.1"
+  }
+}
